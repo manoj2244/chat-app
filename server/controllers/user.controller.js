@@ -95,11 +95,19 @@ export const login = catchAsync(async (req, res, next) => {
    const token = generateToken(user._id);
 
   // Cookie options
+  // const cookieOptions = {
+  //   httpOnly: true,
+  //   secure: process.env.NODE_ENV === "production", 
+  //   maxAge: process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000, 
+  // };
+
   const cookieOptions = {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production", 
-    maxAge: process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000, 
-  };
+  httpOnly: true,
+  secure: process.env.NODE_ENV === "production", // must be true on HTTPS
+  sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", // ✅ important!
+  maxAge: process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000,
+};
+
 
   res.status(200).cookie("jwt", token, cookieOptions).json({
     status: "success",
