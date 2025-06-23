@@ -31,12 +31,12 @@ const Login = () => {
       navigate("/")
     }
   };
-  useEffect(()=>{
-    if(isAuthenticated){
-      navigate("/")
-    }
+  // useEffect(()=>{
+  //   if(isAuthenticated){
+  //     navigate("/")
+  //   }
 
-  },[isAuthenticated])
+  // },[isAuthenticated])
 
   return (
     <div className="flex justify-center items-center p-6 w-full h-screen">

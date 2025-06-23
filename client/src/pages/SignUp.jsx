@@ -33,16 +33,16 @@ const { isAuthenticated, screenLoading } = useSelector((state) => state.user);
 
     
     if(response?.payload?.status==="success"){
-      navigate("/")
+      navigate("/login")
     }
   }
 
 
-useEffect(() => {
-  if (!screenLoading && isAuthenticated) {
-    navigate("/");
-  }
-}, [screenLoading, isAuthenticated]);
+// useEffect(() => {
+//   if (!screenLoading && isAuthenticated) {
+//     navigate("/");
+//   }
+// }, [screenLoading, isAuthenticated]);
 
   if (screenLoading) {
   return (
