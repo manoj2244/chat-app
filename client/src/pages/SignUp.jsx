@@ -44,13 +44,13 @@ const { isAuthenticated, screenLoading } = useSelector((state) => state.user);
 //   }
 // }, [screenLoading, isAuthenticated]);
 
-  if (screenLoading) {
-  return (
-    <div className="h-screen w-full flex justify-center items-center">
-      <span className="loading loading-spinner text-primary"></span>
-    </div>
-  );
-}
+//   if (!screenLoading) {
+//   return (
+//     <div className="h-screen w-full flex justify-center items-center">
+//       <span className="loading loading-spinner text-primary"></span>
+//     </div>
+//   );
+// }
 
   return (
     <div className="flex justify-center items-center p-6 w-full h-screen">
