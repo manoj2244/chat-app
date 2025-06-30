@@ -15,7 +15,7 @@ const SignUp = () => {
     gender:"male"
   });
   const navigate = useNavigate()
-const { isAuthenticated, screenLoading } = useSelector((state) => state.user);
+const { isAuthenticated, buttonLoading } = useSelector((state) => state.user);
 
   const dispatch = useDispatch()
   const handleInputField = (e) => {
@@ -121,7 +121,19 @@ const { isAuthenticated, screenLoading } = useSelector((state) => state.user);
 
           </label>
         </div>
-        <button onClick={handleSignUp} className="btn btn-primary">SignUp</button>
+        {/* <button onClick={handleSignUp} className="btn btn-primary">SignUp</button> */}
+
+             <button
+          onClick={handleSignUp}
+          className="btn btn-primary"
+          // disabled={buttonLoading}
+        >
+          {buttonLoading ? (
+            <span className="loading loading-spinner loading-sm"></span>
+          ) : (
+            "SignUp"
+          )}
+        </button>
         <p>
           {" "}
           Already have an account? &nbsp;

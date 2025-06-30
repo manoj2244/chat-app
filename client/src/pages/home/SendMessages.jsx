@@ -8,6 +8,11 @@ const SendMessages = () => {
 
   const dispatch = useDispatch();
   const { selectedUser } = useSelector((state) => state.user);
+    const { buttonLoading } = useSelector((state) => state.message);
+
+    console.log(buttonLoading,"safasgasgsga");
+    
+
 
   const handleChangeMessage = (e) => {
     setMessage(e.target.value);
@@ -44,8 +49,16 @@ const SendMessages = () => {
         className="p-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full transition duration-300 shadow-md"
         title="Send"
       >
-        <IoIosSend size={18} />
+
+         {buttonLoading ? (
+            <span className="loading loading-spinner loading-sm"></span>
+          ) : (
+                    <IoIosSend size={18}  />
+
+          )}
       </button>
+
+       
     </div>
   );
 };

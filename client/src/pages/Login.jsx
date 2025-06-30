@@ -12,7 +12,9 @@ const Login = () => {
     password: "",
   });
     const navigate = useNavigate()
-    const {isAuthenticated} = useSelector((state)=>state.user)
+    const {isAuthenticated,buttonLoading} = useSelector((state)=>state.user)
+
+    
 
 
   const dispatch = useDispatch();
@@ -62,8 +64,16 @@ const Login = () => {
             onChange={handleInputField}
           />
         </label>
-        <button onClick={handleLogin} className="btn btn-primary">
-          Login
+           <button
+          onClick={handleLogin}
+          className="btn btn-primary"
+          // disabled={buttonLoading}
+        >
+          {buttonLoading ? (
+            <span className="loading loading-spinner loading-sm"></span>
+          ) : (
+            "Login"
+          )}
         </button>
         <p>
           {" "}
